@@ -61,18 +61,19 @@ KHALTI_SECRET_KEY = "Key 8ec002aace27429dad2b86d027ddf962"
 
 @csrf_exempt  # Remove in production
 def khalti(request):
+      
     if request.method == "POST":
         try:
             data = json.loads(request.body)
-
+            print(data)
             payload = {
                 "return_url": "http://localhost:3000/paymentSucess",
                 "website_url": "https://localhost:3000/profile/",
                 "amount": data.get("amount"),  # Amount in paisa (1000 = 10 NPR)
-                "purchase_order_id": data.get("order_id", "Order01"),
-                "purchase_order_name": data.get("order_name", "Test Order"),
+                "purchase_order_id": data.get("purchase_order_id"),
+                "purchase_order_name": data.get("purchase_order_name", "Test Order"),
                 "customer_info": {
-                    "name": data.get("name", "Test "),
+                    "name": data.get("name"),
                     "email": data.get("email", "test@khalti.com"),
                     "phone": data.get("phone", "9800000001"),
                 }
