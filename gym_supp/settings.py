@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'users',
     'rest_framework',
     'corsheaders',
+    'gym_supp',
+    'cart',
 ]
 
 MIDDLEWARE = [
@@ -150,7 +152,7 @@ CORS_ALLOWED_ORIGINS = [
 CORS_ALLOW_ALL_ORIGINS = True 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,

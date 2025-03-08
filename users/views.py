@@ -51,7 +51,7 @@ class LoginView(APIView):
                     'username': user.username,
                     'email': user.email,
                 },
-                "message": "Login Successful"
+                "message": "Login Successful 🎉"
             }, status=status.HTTP_200_OK)
 
         return Response({"error": "Invalid credentials."}, status=status.HTTP_401_UNAUTHORIZED)
@@ -66,13 +66,13 @@ def khalti(request):
             data = json.loads(request.body)
 
             payload = {
-                "return_url": "http://localhost:3000/",
-                "website_url": "https://yourdomain.com/",
-                "amount": data.get("amount", 1000),  # Amount in paisa (1000 = 10 NPR)
+                "return_url": "http://localhost:3000/paymentSucess",
+                "website_url": "https://localhost:3000/profile/",
+                "amount": data.get("amount"),  # Amount in paisa (1000 = 10 NPR)
                 "purchase_order_id": data.get("order_id", "Order01"),
                 "purchase_order_name": data.get("order_name", "Test Order"),
                 "customer_info": {
-                    "name": data.get("name", "Test User"),
+                    "name": data.get("name", "Test "),
                     "email": data.get("email", "test@khalti.com"),
                     "phone": data.get("phone", "9800000001"),
                 }
